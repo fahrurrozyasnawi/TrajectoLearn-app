@@ -1,9 +1,8 @@
 import axios from 'axios';
-import Config from 'react-native-config';
 import {ExtractFrame, TrackObject} from './entity';
 
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_URL_API}/api`,
+  baseURL: 'http://34.50.70.21:8000',
   headers: {
     Accept: '*/*',
   },

@@ -2,6 +2,11 @@
 #
 .DS_Store
 
+# ENVs
+.env
+.env.development
+.env.production
+
 # Xcode
 #
 build/

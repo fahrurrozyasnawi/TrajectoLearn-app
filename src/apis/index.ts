@@ -2,7 +2,7 @@ import axios from 'axios';
 import {ExtractFrame, TrackObject} from './entity';
 
 const api = axios.create({
-  baseURL: 'http://34.50.70.21:8000',
+  baseURL: process.env.REACT_APP_URL_API,
   headers: {
     Accept: '*/*',
   },

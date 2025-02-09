@@ -36,6 +36,7 @@ export const LessonsContext = createContext<ContextValues>({
   pendulumForm: {
     time: 0,
     freq: 0,
+    mass: 0,
   },
   viscosityForm: {
     radius: 0,
@@ -65,6 +66,7 @@ export default function LessonsProvider({children}: Props) {
   const [pendulumForm, setPendulumForm] = useState<PendulumFormValues>({
     time: 0,
     freq: 0,
+    mass: 0,
   });
   const [viscosityForm, setViscosityForm] = useState<ViscosityFormValues>({
     radius: 0,
@@ -100,6 +102,9 @@ export default function LessonsProvider({children}: Props) {
     setViscosityForm(prev => ({...prev, radius: 0, densityT: 0, densityF: 0}));
     setPendulumForm(prev => ({...prev, time: 0, freq: 0}));
     setProjectileMotionForm(prev => ({...prev, yVal: 0, xVal: 0}));
+
+    setVideoResult(null);
+    setFormulaResult(0);
   };
 
   return (

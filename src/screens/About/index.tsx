@@ -1,58 +1,70 @@
-import {StyleSheet, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Text} from 'react-native-paper';
+import {Card, Text} from 'react-native-paper';
 import Container from '@components/layout/container';
+import DoubleLayer from '@components/layout/double-layer';
 
 type Props = {};
 
 const About = (props: Props) => {
   return (
-    <Container>
+    <DoubleLayer bgImg={require('../../assets/bg.jpg')}>
       <Text style={styles.title} variant="displaySmall">
         About Us
       </Text>
 
-      <View style={styles.mainText}>
-        <Text variant="bodyMedium">
-          Selamat datang di TrajectoLearn, aplikasi edukasi berbasis kecerdasan
-          buatan yang memudahkan siswa memahami fisika secara interaktif dan
-          menyenangkan.
-        </Text>
-        <Text variant="bodyMedium">
-          Dikembangkan oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan Yurmi
-          Rengke, TrajectoLearn menyederhanakan konsep-konsep fisika seperti:
-        </Text>
-        <View style={styles.list}>
-          <Text style={styles.titleList} variant="titleSmall">
-            Gerak Parabola
+      <Card style={styles.aboutCard}>
+        <View style={styles.mainText}>
+          <Text variant="bodyLarge">
+            Selamat datang di TrajectoLearn, aplikasi edukasi berbasis
+            kecerdasan buatan yang memudahkan siswa memahami fisika secara
+            interaktif dan menyenangkan.
           </Text>
-          <Text variant="bodyMedium">
-            : Mengukur lintasan, kecepatan, dan ketinggian.
+          <Text variant="bodyLarge">
+            Dikembangkan oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan
+            Yurmi Rengke, TrajectoLearn menyederhanakan konsep-konsep fisika
+            seperti:
           </Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.titleList} variant="titleSmall">
-            Gerak Harmonik Sederhana
-          </Text>
-          <Text variant="bodyMedium">: Menganalisis osilasi dan periode.</Text>
-        </View>
-        <View style={styles.list}>
-          <Text style={styles.titleList} variant="titleSmall">
-            Viskositas
-          </Text>
-          <Text variant="bodyMedium">: Menghitung nilai viskositas.</Text>
-        </View>
+          <View style={styles.list}>
+            <Text>
+              <Text style={styles.titleList} variant="titleMedium">
+                Gerak Parabola
+              </Text>
+              <Text variant="bodyLarge">
+                : Mengukur lintasan, kecepatan, dan ketinggian.
+              </Text>
+            </Text>
+          </View>
+          <View style={styles.list}>
+            <Text>
+              <Text style={styles.titleList} variant="titleMedium">
+                Gerak Harmonik Sederhana
+              </Text>
+              <Text variant="bodyLarge">
+                : Menganalisis osilasi dan periode.
+              </Text>
+            </Text>
+          </View>
+          <View style={styles.list}>
+            <Text>
+              <Text style={styles.titleList} variant="titleMedium">
+                Viskositas
+              </Text>
+              <Text variant="bodyLarge">: Menghitung nilai viskositas.</Text>
+            </Text>
+          </View>
 
-        <Text variant="bodyMedium">
-          Dengan antarmuka yang user-friendly dan teknologi AI, TrajectoLearn
-          membuat belajar fisika lebih mudah dipahami dan menyenangkan.
-        </Text>
+          <Text variant="bodyLarge">
+            Dengan antarmuka yang user-friendly dan teknologi AI, TrajectoLearn
+            membuat belajar fisika lebih mudah dipahami dan menyenangkan.
+          </Text>
 
-        <Text style={styles.slogan} variant="bodyLarge">
-          TrajectoLearn - Solusi Cerdas untuk Belajar Fisika!
-        </Text>
-      </View>
-    </Container>
+          <Text style={styles.slogan} variant="titleLarge">
+            TrajectoLearn - Solusi Cerdas untuk Belajar Fisika!
+          </Text>
+        </View>
+      </Card>
+    </DoubleLayer>
   );
 };
 
@@ -60,11 +72,31 @@ export default About;
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    paddingHorizontal: 32,
+  },
+  cardLayout: {
+    marginTop: -24,
+    paddingTop: 20,
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+  },
+  bgImg: {
+    height: Dimensions.get('window').height / 5,
+    width: '100%',
+    objectFit: 'cover',
   },
   title: {
     textAlign: 'center',
+  },
+  aboutCard: {
+    marginTop: 24,
+    marginHorizontal: 32,
+    padding: 12,
   },
   mainText: {
     // paddingHorizontal: 12,
@@ -73,8 +105,8 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   list: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    // flexDirection: 'row',
+    // alignItems: 'center',
     gap: 1,
     marginLeft: 8,
   },

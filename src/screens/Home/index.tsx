@@ -1,56 +1,58 @@
-import Container from '@components/layout/container';
+import DoubleLayer from '@components/layout/double-layer';
+import HomeLayout from '@components/layout/home-layout';
 import {LessonsContext} from '@context/Lessons';
 import {useNavigation} from '@react-navigation/native';
 import {RootNavigationProp} from '@routes/entity';
 import React, {useContext} from 'react';
-import {StyleSheet} from 'react-native';
-import {Card} from 'react-native-paper';
-import Config from 'react-native-config';
+import {Dimensions, FlatList, StyleSheet, View} from 'react-native';
+import {Button, Card, Text} from 'react-native-paper';
+
+type ListLesson = {
+  title: string;
+  name: string;
+  img: any;
+  desc?: string;
+  color?: string;
+};
 
 const Home = () => {
   const navigation = useNavigation<RootNavigationProp>();
-  const {updateLessonType} = useContext(LessonsContext);
-  console.log('config', Config.REACT_APP_URL_API);
-  console.log('process env', process.env);
 
   return (
-    <Container style={styles.container}>
-      {listLesson.map(item => (
-        <Card
-          onPress={() => {
-            // navigation.navigate('Lessons', {screen: item.title});
-            updateLessonType(item.name);
-            navigation.navigate(item.title as never);
-          }}
-          style={styles.card}
-          key={item.title}>
-          <Card.Title
-            title={item.title}
-            titleVariant="titleLarge"
-            titleStyle={styles.title}
-          />
-          <Card.Cover source={item.img} />
-        </Card>
-      ))}
-    </Container>
+    <HomeLayout bgImg={require('../../assets/bg.jpg')}>
+      <View style={styles.container}>
+        <Button onPress={() => navigation.navigate('Lessons')} mode="contained">
+          Menu
+        </Button>
+        <Button onPress={() => navigation.navigate('About')} mode="contained">
+          About Us
+        </Button>
+      </View>
+    </HomeLayout>
   );
 };
 
-const listLesson = [
+const listLesson: ListLesson[] = [
   {
     title: 'Gerak Parabola',
     name: 'projectile-motion',
-    img: require('../../assets/projectile-motion.png'),
+    img: require('../../assets/projectile-illustrate.png'),
+    color: '#4930be',
+    desc: 'Gerak parabola adalah gabungan antara gerak lurus beraturan (GLB) dan gerak lurus berubah beraturan (GLBB). Pengertian gerak parabola sendiri adalah gerak dua dimensi suatu benda yang bergerak membentuk sudut elevasi dengan sumbu x atau sumbu y.',
   },
   {
     title: 'Gerak Harmonik',
     name: 'pendulum',
-    img: require('../../assets/pendulum.png'),
+    img: require('../../assets/pendulum-illustrate.png'),
+    color: '#739bfd',
+    desc: 'Gerak harmonik sederhana adalah gerak bolak - balik benda melalui suatu titik keseimbangan tertentu dengan banyaknya getaran benda dalam setiap sekon selalu konstan.',
   },
   {
     title: 'Viskositas',
     name: 'viscosity',
-    img: require('../../assets/viscosity.png'),
+    img: require('../../assets/viscosity-illustrate.png'),
+    color: '#f3cb39',
+    desc: 'Viskositas atau disebut juga kekentalan adalah tingkat ketahanan suatu fluida terhadap tegangan yang diterimanya. Viskositas itu disebabkan oleh adanya gaya kohesi antar partikel fluida.',
   },
 ];
 
@@ -59,13 +61,9 @@ const styles = StyleSheet.create({
     gap: 12,
     alignItems: 'center',
   },
-  title: {
-    fontWeight: 'bold',
-  },
-  card: {
-    // flexGrow: 1,
-    // height: 90,
-    width: '100%',
+  button: {
+    height: 50,
+    width: 100,
   },
 });
 

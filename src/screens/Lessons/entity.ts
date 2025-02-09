@@ -16,7 +16,7 @@ export const projectileMotionSchema = z.object({
 export type ProjectileMotionFormValues = z.infer<typeof projectileMotionSchema>;
 
 export const pendulumSchema = z.object({
-  time: z.number(),
+  time: z.number().optional(),
   freq: z.number(),
   mass: z.number().optional(),
 });

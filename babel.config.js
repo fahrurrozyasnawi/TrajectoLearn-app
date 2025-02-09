@@ -21,6 +21,7 @@ module.exports = {
         root: ['.'],
         alias: {
           '@apis': './src/apis',
+          '@config': './src/config',
           '@context': './src/context',
           '@components': './src/components',
           '@hooks': './src/hooks',

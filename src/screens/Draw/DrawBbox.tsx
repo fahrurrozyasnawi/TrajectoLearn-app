@@ -135,7 +135,7 @@ const DrawBbox = (props: Props) => {
     updateBbox(generatedDraw.value);
 
     try {
-      await trackObject();
+      await trackObject(generatedDraw.value);
       navigation.navigate('Result');
     } catch (error) {
       console.log('error tracking object', error);

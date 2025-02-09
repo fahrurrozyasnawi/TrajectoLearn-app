@@ -1,13 +1,15 @@
 import Container from '@components/layout/container';
+import DoubleLayer from '@components/layout/double-layer';
 import VideoPlayer from '@components/media/VideoPlayer';
 import HStack from '@components/stack view/HStack';
 import VStack from '@components/stack view/VStack';
+import {LessonsContext} from '@context/Lessons';
 import {VideoProcessingContext} from '@context/VideoProcessing';
 import useExtractFrame from '@hooks/useExtractFrame';
 import {useNavigation} from '@react-navigation/native';
 import {RootNavigationProp} from '@routes/entity';
 import React, {useContext, useState} from 'react';
-import {Alert, StyleSheet} from 'react-native';
+import {Alert, StyleSheet, View} from 'react-native';
 import {Button, Text} from 'react-native-paper';
 import {OnProgressData} from 'react-native-video';
 
@@ -24,9 +26,12 @@ const FrameExtract = () => {
   const navigation = useNavigation<RootNavigationProp>();
 
   const {videoUri} = useContext(VideoProcessingContext);
+  const {lessonType} = useContext(LessonsContext);
+
+  const path = filePaths.find(item => item.name === lessonType)?.path;
 
   const {extractFrame, durationTimeline, updateDurationTimeline} =
-    useExtractFrame({filePath: '/viscosity/vid'});
+    useExtractFrame({filePath: path});
 
   const [seekTime, setSeekTime] = useState<number>(0);
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
@@ -57,59 +62,71 @@ const FrameExtract = () => {
   };
 
   return (
-    <Container>
-      <VStack>
-        <VideoPlayer
-          src={videoUri as string}
-          paused={true}
-          controls={true}
-          controlsStyles={controlOptions}
-          onProgress={handleProgressChange}
-        />
-
+    <DoubleLayer bgImg={lessonType}>
+      <View style={styles.container}>
         <VStack>
-          <HStack style={styles.timeline}>
-            <Text style={styles.durationTitle}>Time Start</Text>
-            <Text style={styles.durationValue} variant="titleMedium">
-              {durationTimeline.start}
-            </Text>
-            <Button
-              mode="elevated"
-              style={styles.setBtn}
-              onPress={() => onSaveDuration('start')}>
-              Set
-            </Button>
-          </HStack>
-          <HStack style={styles.timeline}>
-            <Text style={styles.durationTitle}>Time End</Text>
-            <Text style={styles.durationValue} variant="titleMedium">
-              {durationTimeline.end}
-            </Text>
-            <Button
-              mode="elevated"
-              style={styles.setBtn}
-              onPress={() => onSaveDuration('end')}>
-              Set
-            </Button>
-          </HStack>
-        </VStack>
+          <VideoPlayer
+            src={videoUri as string}
+            paused={true}
+            controls={true}
+            controlsStyles={controlOptions}
+            onProgress={handleProgressChange}
+          />
 
-        <Button
-          style={styles.processBtn}
-          mode="contained"
-          disabled={btnLoading}
-          loading={btnLoading}
-          onPress={() => onSubmit()}>
-          Process
-        </Button>
-      </VStack>
-    </Container>
+          <VStack>
+            <HStack style={styles.timeline}>
+              <Text style={styles.durationTitle}>Time Start</Text>
+              <Text style={styles.durationValue} variant="titleMedium">
+                {durationTimeline.start}
+              </Text>
+              <Button
+                mode="elevated"
+                style={styles.setBtn}
+                onPress={() => onSaveDuration('start')}>
+                Set
+              </Button>
+            </HStack>
+            <HStack style={styles.timeline}>
+              <Text style={styles.durationTitle}>Time End</Text>
+              <Text style={styles.durationValue} variant="titleMedium">
+                {durationTimeline.end}
+              </Text>
+              <Button
+                mode="elevated"
+                style={styles.setBtn}
+                onPress={() => onSaveDuration('end')}>
+                Set
+              </Button>
+            </HStack>
+          </VStack>
+
+          <Button
+            style={styles.processBtn}
+            mode="contained"
+            disabled={btnLoading}
+            loading={btnLoading}
+            onPress={() => onSubmit()}>
+            Process
+          </Button>
+        </VStack>
+      </View>
+    </DoubleLayer>
   );
 };
+
+const filePaths = [
+  {name: 'viscosity', path: '/viscosity/vid'},
+  {name: 'pendulum', path: '/pendulum/vid'},
+  {name: 'projectile-motion', path: '/projectile-motion/vid'},
+];
 
 export default FrameExtract;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 12,
+    paddingHorizontal: 12,
+  },
   durationTitle: {
     flex: 1,
   },

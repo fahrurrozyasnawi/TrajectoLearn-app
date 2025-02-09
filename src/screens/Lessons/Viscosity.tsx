@@ -8,11 +8,12 @@ import {useNavigation} from '@react-navigation/native';
 import {RootNavigationProp} from '@routes/entity';
 import React, {useContext, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {Alert, BackHandler, ScrollView, StyleSheet} from 'react-native';
+import {Alert, BackHandler, ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Text, TextInput} from 'react-native-paper';
 import {OnVideoErrorData} from 'react-native-video';
 import useImportVideo from 'src/hooks/useImportVideo';
 import {ViscosityFormValues, viscositySchema} from './entity';
+import DoubleLayer from '@components/layout/double-layer';
 
 const Viscosity = () => {
   // const theme = useTheme();
@@ -46,6 +47,7 @@ const Viscosity = () => {
     const backAction = () => {
       if (navigation.canGoBack()) {
         resetState();
+        navigation.goBack();
       }
       return true;
     };
@@ -61,52 +63,54 @@ const Viscosity = () => {
   // console.log('frame', frameResult);
   return (
     <>
-      <Container style={styles.container}>
-        <ScrollView>
-          <Text variant="titleMedium">Masukkan Nilai</Text>
-          <VStack style={styles.inputLayout}>
-            <HFNumberInput
-              name="radius"
-              control={control}
-              label="Jari-jari"
-              right={<TextInput.Affix text="m" />}
-            />
-            <HFNumberInput
-              name="densityT"
-              control={control}
-              label="Massa Jenis Benda"
-              right={<TextInput.Affix text="kg/m^3" />}
-            />
-            <HFNumberInput
-              name="densityF"
-              control={control}
-              label="Massa Jenis Fluida"
-              right={<TextInput.Affix text="kg/m^3" />}
-            />
-          </VStack>
-          <VStack style={styles.uploadLayout}>
-            <Text variant="titleMedium">Import Video</Text>
-            {videoUri && (
-              <VideoPlayer
-                src={videoUri}
-                onError={onError}
-                paused={true}
-                controls={true}
+      <DoubleLayer bgImg="viscosity" containerStyle={styles.container}>
+        <View style={styles.container}>
+          <ScrollView>
+            <Text variant="titleMedium">Masukkan Nilai</Text>
+            <VStack style={styles.inputLayout}>
+              <HFNumberInput
+                name="radius"
+                control={control}
+                label="Jari-jari"
+                right={<TextInput.Affix text="m" />}
               />
-            )}
-            <Button onPress={browseVideo} mode="contained">
-              Select Video
-            </Button>
-          </VStack>
+              <HFNumberInput
+                name="densityT"
+                control={control}
+                label="Massa Jenis Benda"
+                right={<TextInput.Affix text="kg/m^3" />}
+              />
+              <HFNumberInput
+                name="densityF"
+                control={control}
+                label="Massa Jenis Fluida"
+                right={<TextInput.Affix text="kg/m^3" />}
+              />
+            </VStack>
+            <VStack style={styles.uploadLayout}>
+              <Text variant="titleMedium">Import Video</Text>
+              {videoUri && (
+                <VideoPlayer
+                  src={videoUri}
+                  onError={onError}
+                  paused={true}
+                  controls={true}
+                />
+              )}
+              <Button onPress={browseVideo} mode="contained">
+                Select Video
+              </Button>
+            </VStack>
 
-          <Button
-            onPress={handleSubmit(onSubmit)}
-            style={styles.submit}
-            mode="contained">
-            Submit
-          </Button>
-        </ScrollView>
-      </Container>
+            <Button
+              onPress={handleSubmit(onSubmit)}
+              style={styles.submit}
+              mode="contained">
+              Submit
+            </Button>
+          </ScrollView>
+        </View>
+      </DoubleLayer>
     </>
   );
 };
@@ -115,6 +119,9 @@ export default Viscosity;
 
 const styles = StyleSheet.create({
   container: {
+    // width: '100%',
+    // height: '100%',
+    paddingHorizontal: 12,
     paddingBottom: 12,
   },
 

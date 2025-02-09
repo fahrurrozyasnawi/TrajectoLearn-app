@@ -13,7 +13,8 @@ type ExtractForm = {
   frameResult: any;
   durationTimeline: DurationTimeline;
   extractFrame: () => Promise<void>;
-  trackObject: () => Promise<void>;
+  getFormulaResult: (taskId: string) => Promise<void>;
+  trackObject: (bbox: BoundingBox) => Promise<void>;
   updateDurationTimeline: Function;
   resetFrameResult: Function;
 };
@@ -24,7 +25,6 @@ type Props = {
 
 const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
   const {
-    bbox,
     pathFile,
     filename,
     frameResult,
@@ -57,6 +57,7 @@ const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
       type: assets.type,
       name: filename,
     });
+
     try {
       const result = await API.uploadFile(formData, filePath);
 
@@ -102,7 +103,7 @@ const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
     }
   };
 
-  const trackObject = async () => {
+  const trackObject = async (_bbox: BoundingBox) => {
     let lessonData: any = viscosityForm;
 
     if (lessonType === 'pendulum') {
@@ -116,7 +117,7 @@ const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
     const body = {
       lessonData,
       lessonType,
-      bbox: bbox as BoundingBox,
+      bbox: _bbox,
       timeStart: durationTimeline.start,
       timeEnd: durationTimeline.end,
       videoSrc: videoUri as string,
@@ -127,15 +128,27 @@ const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
     console.log('body', body);
     try {
       const result = await API.trackObject(body);
-
+      console.log('result tracking', result);
       const {success, data} = result.data;
       if (success) {
         updateTaskId(data);
-        // updateFormulaResult(data.result);
-        // updateVideoResult(data.video);
       }
     } catch (error) {
       console.log('error track object', error);
+    }
+  };
+
+  const getFormulaResult = async (taskId: string) => {
+    try {
+      const result = await API.getFormula(taskId);
+      const {success, data} = result.data;
+
+      console.log('data formula', data);
+      if (success) {
+        updateFormulaResult(data.result);
+      }
+    } catch (error) {
+      console.log('error get formula', error);
     }
   };
 
@@ -148,6 +161,7 @@ const useExtractFrame = ({filePath = ''}: Props = {}): ExtractForm => {
     durationTimeline,
 
     updateDurationTimeline,
+    getFormulaResult,
     extractFrame,
     trackObject,
     resetFrameResult,

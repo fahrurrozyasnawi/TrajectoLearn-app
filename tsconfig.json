@@ -4,6 +4,9 @@
     "rootDir": ".",
     "baseUrl": ".", // root of your "paths" below. Required if "paths" is defined
     "paths": {
+      "@config/*": [
+        "src/config/*"
+      ],
       "@context/*": [
         "src/context/*"
       ],

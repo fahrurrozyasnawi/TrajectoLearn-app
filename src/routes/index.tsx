@@ -11,6 +11,7 @@ import React from 'react';
 import Home from '../screens/Home';
 import About from '@screens/About';
 import Result from '@screens/Lessons/Result';
+import Lessons from '@screens/Lessons';
 
 const Stack = createStackNavigator();
 
@@ -18,18 +19,22 @@ export default function RootStack() {
   return (
     <Stack.Navigator
       initialRouteName="Home"
+      // screenOptions={{
+      //   header: props => <Header {...props} />,
+      // }}
       screenOptions={{
-        header: props => <Header {...props} />,
+        headerShown: false,
       }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Result" component={Result} />
+      <Stack.Screen name="Lessons" component={Lessons} />
       <Stack.Screen name="Viskositas" component={Viscosity} />
       <Stack.Screen name="Gerak Parabola" component={ProjectileMotion} />
       <Stack.Screen name="Gerak Harmonik" component={Pendulum} />
       <Stack.Screen
         name="Select Object Track"
-        options={{headerShown: false}}
+        // options={{headerShown: false}}
         component={DrawBbox}
       />
       <Stack.Screen name="Frame Extract" component={FrameExtract} />

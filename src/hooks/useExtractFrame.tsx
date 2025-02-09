@@ -1,7 +1,7 @@
 import {LessonsContext} from '@context/Lessons';
 import {VideoProcessingContext} from '@context/VideoProcessing';
 import {BoundingBox} from '@screens/Draw/entity';
-import {useContext, useState} from 'react';
+import {useContext} from 'react';
 import API from 'src/apis';
 
 type DurationTimeline = {

@@ -1,6 +1,6 @@
 import {LessonsContext} from '@context/Lessons';
 import {VideoProcessingContext} from '@context/VideoProcessing';
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useEffect} from 'react';
 import {NativeEventEmitter, NativeModules} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {cleanFiles, showEditor} from 'react-native-video-trim';

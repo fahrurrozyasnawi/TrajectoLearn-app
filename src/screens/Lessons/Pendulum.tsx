@@ -1,18 +1,17 @@
 import HFNumberInput from '@components/input/HFNumberInput';
-import Container from '@components/layout/container';
+import DoubleLayer from '@components/layout/double-layer';
 import VideoPlayer from '@components/media/VideoPlayer';
 import VStack from '@components/stack view/VStack';
+import {LessonsContext} from '@context/Lessons';
 import {zodResolver} from '@hookform/resolvers/zod';
+import {useNavigation} from '@react-navigation/native';
+import {RootNavigationProp} from '@routes/entity';
 import React, {useContext, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {Alert, BackHandler, StyleSheet, View} from 'react-native';
 import {Button, Text} from 'react-native-paper';
 import useImportVideo from 'src/hooks/useImportVideo';
 import {PendulumFormValues, pendulumSchema} from './entity';
-import {useNavigation} from '@react-navigation/native';
-import {RootNavigationProp} from '@routes/entity';
-import DoubleLayer from '@components/layout/double-layer';
-import {LessonsContext} from '@context/Lessons';
 
 const Pendulum = () => {
   const navigation = useNavigation<RootNavigationProp>();
@@ -54,8 +53,6 @@ const Pendulum = () => {
 
     return () => backHandler.remove();
   }, [navigation]);
-
-  console.log('lesson type', lessonType);
 
   return (
     <DoubleLayer bgImg={lessonType}>

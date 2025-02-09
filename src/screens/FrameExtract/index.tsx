@@ -1,4 +1,3 @@
-import Container from '@components/layout/container';
 import DoubleLayer from '@components/layout/double-layer';
 import VideoPlayer from '@components/media/VideoPlayer';
 import HStack from '@components/stack view/HStack';

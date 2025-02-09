@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Dimensions,
   Image,
-  ImageSourcePropType,
   ImageStyle,
   StyleSheet,
   View,

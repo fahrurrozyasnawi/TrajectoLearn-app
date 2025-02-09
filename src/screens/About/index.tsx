@@ -1,14 +1,13 @@
-import {Dimensions, Image, StyleSheet, View} from 'react-native';
-import React from 'react';
-import {Card, Text} from 'react-native-paper';
-import Container from '@components/layout/container';
 import DoubleLayer from '@components/layout/double-layer';
+import React from 'react';
+import {Dimensions, StyleSheet, View} from 'react-native';
+import {Card, Text} from 'react-native-paper';
 
 type Props = {};
 
 const About = (props: Props) => {
   return (
-    <DoubleLayer bgImg={require('../../assets/bg.jpg')}>
+    <DoubleLayer bgImg="home">
       <Text style={styles.title} variant="displaySmall">
         About Us
       </Text>

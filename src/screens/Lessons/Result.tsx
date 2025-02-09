@@ -1,21 +1,17 @@
-import {Image, StyleSheet, View} from 'react-native';
-import React, {useContext, useEffect, useState} from 'react';
 import Container from '@components/layout/container';
-import {Button, Chip, ProgressBar, Text} from 'react-native-paper';
-import {LessonsContext} from '@context/Lessons';
-import {
-  CommonActions,
-  StackActions,
-  useNavigation,
-} from '@react-navigation/native';
-import {RootNavigationProp} from '@routes/entity';
 import VideoPlayer from '@components/media/VideoPlayer';
-import useExtractFrame from '@hooks/useExtractFrame';
-import {VideoProcessingContext} from '@context/VideoProcessing';
 import HStack from '@components/stack view/HStack';
-import useImportVideo from '@hooks/useImportVideo';
-import API from 'src/apis';
 import StaticVar from '@config/StaticVar';
+import {LessonsContext} from '@context/Lessons';
+import {VideoProcessingContext} from '@context/VideoProcessing';
+import useExtractFrame from '@hooks/useExtractFrame';
+import useImportVideo from '@hooks/useImportVideo';
+import {useNavigation} from '@react-navigation/native';
+import {RootNavigationProp} from '@routes/entity';
+import React, {useContext, useEffect, useState} from 'react';
+import {Image, StyleSheet, View} from 'react-native';
+import {Button, Chip, ProgressBar, Text} from 'react-native-paper';
+import API from 'src/apis';
 
 type Props = {};
 
@@ -42,8 +38,6 @@ const Result = (props: Props) => {
     status: 'Initialize',
     progress: 0,
   });
-
-  console.log('lesson type', lessonType);
 
   const Summary = () => {
     if (lessonType === 'viscosity') {
@@ -313,6 +307,7 @@ export default Result;
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 12,
     paddingBottom: 12,
   },
   layoutValue: {

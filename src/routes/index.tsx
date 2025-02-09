@@ -1,17 +1,16 @@
-import Header from '@components/header';
 import 'react-native-gesture-handler';
 
 import {createStackNavigator} from '@react-navigation/stack';
+import About from '@screens/About';
 import DrawBbox from '@screens/Draw/DrawBbox';
 import FrameExtract from '@screens/FrameExtract';
+import Lessons from '@screens/Lessons';
 import Pendulum from '@screens/Lessons/Pendulum';
 import ProjectileMotion from '@screens/Lessons/ProjectileMotion';
+import Result from '@screens/Lessons/Result';
 import Viscosity from '@screens/Lessons/Viscosity';
 import React from 'react';
 import Home from '../screens/Home';
-import About from '@screens/About';
-import Result from '@screens/Lessons/Result';
-import Lessons from '@screens/Lessons';
 
 const Stack = createStackNavigator();
 

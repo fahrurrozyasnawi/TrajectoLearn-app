@@ -1,18 +1,17 @@
 import HFNumberInput from '@components/input/HFNumberInput';
-import Container from '@components/layout/container';
+import DoubleLayer from '@components/layout/double-layer';
 import VideoPlayer from '@components/media/VideoPlayer';
 import VStack from '@components/stack view/VStack';
+import {LessonsContext} from '@context/Lessons';
 import {zodResolver} from '@hookform/resolvers/zod';
+import {useNavigation} from '@react-navigation/native';
+import {RootNavigationProp} from '@routes/entity';
 import React, {useContext, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {BackHandler, StyleSheet, View} from 'react-native';
 import {Button, Text, TextInput} from 'react-native-paper';
 import useImportVideo from 'src/hooks/useImportVideo';
 import {ProjectileMotionFormValues, projectileMotionSchema} from './entity';
-import {useNavigation} from '@react-navigation/native';
-import {RootNavigationProp} from '@routes/entity';
-import {LessonsContext} from '@context/Lessons';
-import DoubleLayer from '@components/layout/double-layer';
 
 const ProjectileMotion = () => {
   const navigation = useNavigation<RootNavigationProp>();

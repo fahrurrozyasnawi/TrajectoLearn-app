@@ -54,6 +54,7 @@ const FrameExtract = () => {
       await extractFrame();
       navigation.navigate('Select Object Track');
     } catch (error) {
+      console.log('error');
       console.log(error);
     } finally {
       setBtnLoading(false);

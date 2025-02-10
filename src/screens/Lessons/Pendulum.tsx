@@ -55,7 +55,7 @@ const Pendulum = () => {
   }, [navigation]);
 
   return (
-    <DoubleLayer bgImg={lessonType}>
+    <DoubleLayer bgImg={lessonType} imageStyle={styles.imgCover}>
       <View style={styles.container}>
         <Text variant="titleMedium">Masukkan Nilai</Text>
         <VStack style={styles.inputLayout}>
@@ -86,8 +86,6 @@ export default Pendulum;
 
 const styles = StyleSheet.create({
   container: {
-    // width: '100%',
-    // height: '100%',
     paddingHorizontal: 12,
     paddingBottom: 12,
   },
@@ -101,4 +99,5 @@ const styles = StyleSheet.create({
   submit: {
     marginTop: 12,
   },
+  imgCover: {},
 });

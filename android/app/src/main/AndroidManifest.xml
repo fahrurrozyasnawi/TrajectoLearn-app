@@ -11,7 +11,10 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme"
-      android:supportsRtl="true">
+      android:supportsRtl="true"
+      android:usesCleartextTraffic="true"
+      android:networkSecurityConfig="@xml/network_security_config"
+      >
       <!-- <meta-data android:name="API_URL" android:value="${API_URL}"/> -->
       <activity
         android:name=".MainActivity"

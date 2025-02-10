@@ -17,6 +17,8 @@ const Home = () => {
         <Button onPress={() => navigation.navigate('About')} mode="contained">
           About Us
         </Button>
+
+        {/* <Text>{`Url api : ${process.env.REACT_APP_URL_API}`}</Text> */}
       </View>
     </HomeLayout>
   );

@@ -34,6 +34,7 @@ function DoubleLayer({
           {height: Dimensions.get('window').height / bgHeight},
           imageStyle,
         ]}
+        resizeMode="cover"
       />
       <Card style={[styles.cardLayout, containerStyle]}>{children}</Card>
     </View>

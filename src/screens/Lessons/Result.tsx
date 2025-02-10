@@ -137,7 +137,7 @@ const Result = (props: Props) => {
               </View>
               <View style={styles.inputContainer}>
                 <Chip>Tinggi</Chip>
-                <Text>{`${projectileMotionForm.yVal} kg/m^3`}</Text>
+                <Text>{`${projectileMotionForm.yVal} m`}</Text>
               </View>
             </HStack>
           </View>

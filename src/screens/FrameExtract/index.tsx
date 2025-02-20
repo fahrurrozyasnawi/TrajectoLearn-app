@@ -44,8 +44,8 @@ const FrameExtract = () => {
   };
 
   const onSubmit = async (): Promise<void> => {
-    if (Object.values(durationTimeline).find(val => val === 0)) {
-      Alert.alert('Pleas set time start!/end first!');
+    if (durationTimeline.end === 0) {
+      Alert.alert('Pleas set time end first!');
       return;
     }
 

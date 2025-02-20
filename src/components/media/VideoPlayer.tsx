@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {StyleSheet, ViewStyle} from 'react-native';
 import Video, {
   OnBufferData,
@@ -22,6 +22,10 @@ const VideoPlayer = ({
   ...rest
 }: VideoPlayerType) => {
   const videRef = useRef<VideoRef>(null);
+
+  useEffect(() => {
+    return () => videRef.current?.pause();
+  }, [videRef.current]);
 
   if (src) {
     return (

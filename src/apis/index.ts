@@ -17,9 +17,7 @@ const uploadFile = (data: FormData, filePath?: string) =>
   });
 
 const extractFrame = (data: ExtractFrame) =>
-  api.post('/video/extract-frame', data, {
-    // responseType: 'arraybuffer',
-  });
+  api.post('/video/extract-frame', data);
 const trackObject = (data: TrackObject) =>
   api.post('/video/track-object', data);
 const getResult = (path: string) => api.get(`/video/result/${path}`);

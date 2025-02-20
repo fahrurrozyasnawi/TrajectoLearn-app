@@ -9,7 +9,7 @@ import useImportVideo from '@hooks/useImportVideo';
 import {useNavigation} from '@react-navigation/native';
 import {RootNavigationProp} from '@routes/entity';
 import React, {useContext, useEffect, useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Chip, ProgressBar, Text} from 'react-native-paper';
 import API from 'src/apis';
 
@@ -43,125 +43,30 @@ const Result = (props: Props) => {
     if (lessonType === 'viscosity') {
       return (
         <View style={styles.infoLayout}>
-          <View style={styles.imgCropLayout}>
-            {/* <Text variant="titleMedium">Object</Text> */}
-            <Image
-              source={{uri: imageCropped as string}}
-              style={styles.imgCropped}
-            />
-          </View>
-          <View style={styles.inputLayout}>
-            {/* <Text variant="titleMedium">Input</Text> */}
-            <HStack style={styles.inputs}>
-              <View style={styles.inputContainer}>
-                <Chip>Waktu</Chip>
-                <Text>{`${
-                  Math.round(
-                    (durationTimeline.end - durationTimeline.start) * 100,
-                  ) / 100
-                } s`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Jari-jari</Chip>
-                <Text>{`${viscosityForm.radius} m`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Massa Jenis Benda</Chip>
-                <Text>{`${viscosityForm.densityT} kg/m^3`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Massa Jenis Fluida</Chip>
-                <Text>{`${viscosityForm.densityF} kg/m^3`}</Text>
-              </View>
-            </HStack>
-          </View>
-        </View>
-      );
-    }
-
-    if (lessonType === 'pendulum') {
-      return (
-        <View style={styles.infoLayout}>
-          <View style={styles.imgCropLayout}>
-            {/* <Text variant="titleMedium">Object</Text> */}
-            <Image
-              source={{uri: imageCropped as string}}
-              style={styles.imgCropped}
-            />
-          </View>
-          <View style={styles.inputLayout}>
-            {/* <Text variant="titleMedium">Input</Text> */}
-            <HStack style={styles.inputs}>
-              <View style={styles.inputContainer}>
-                <Chip>Waktu</Chip>
-                <Text>{`${
-                  Math.round(
-                    (durationTimeline.end - durationTimeline.start) * 100,
-                  ) / 100
-                } s`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Frekuensi</Chip>
-                <Text>{`${pendulumForm.freq} Hz`}</Text>
-              </View>
-            </HStack>
-          </View>
-        </View>
-      );
-    }
-
-    if (lessonType === 'projectile-motion') {
-      return (
-        <View style={styles.infoLayout}>
-          <View style={styles.imgCropLayout}>
-            {/* <Text variant="titleMedium">Object</Text> */}
-            <Image
-              source={{uri: imageCropped as string}}
-              style={styles.imgCropped}
-            />
-          </View>
-          <View style={styles.inputLayout}>
-            {/* <Text variant="titleMedium">Input</Text> */}
-            <HStack style={styles.inputs}>
-              <View style={styles.inputContainer}>
-                <Chip>Waktu</Chip>
-                <Text>{`${
-                  Math.round(
-                    (durationTimeline.end - durationTimeline.start) * 100,
-                  ) / 100
-                } s`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Jarak</Chip>
-                <Text>{`${projectileMotionForm.xVal} m`}</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <Chip>Tinggi</Chip>
-                <Text>{`${projectileMotionForm.yVal} m`}</Text>
-              </View>
-            </HStack>
-          </View>
-        </View>
-      );
-    }
-  };
-
-  const Value = () => {
-    if (lessonType === 'viscosity') {
-      return (
-        <View>
+          <Image
+            source={{uri: imageCropped as string}}
+            style={styles.imgCropped}
+          />
           <HStack style={styles.inputs}>
             <View style={styles.inputContainer}>
-              <Chip>Viskositas</Chip>
+              <Chip>Waktu</Chip>
               <Text>{`${
-                Math.round(formulaResult.result * 100) / 100
-              } N.s/m^2`}</Text>
+                Math.round(
+                  (durationTimeline.end - durationTimeline.start) * 100,
+                ) / 100
+              } s`}</Text>
             </View>
             <View style={styles.inputContainer}>
-              <Chip>Kecepatan</Chip>
-              <Text>{`${
-                Math.round(formulaResult.amplitude * 100) / 100
-              } m/s`}</Text>
+              <Chip>Jari-jari</Chip>
+              <Text>{`${viscosityForm.radius} m`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Massa Jenis Benda</Chip>
+              <Text>{`${viscosityForm.densityT} kg/m^3`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Massa Jenis Fluida</Chip>
+              <Text>{`${viscosityForm.densityF} kg/m^3`}</Text>
             </View>
           </HStack>
         </View>
@@ -170,13 +75,117 @@ const Result = (props: Props) => {
 
     if (lessonType === 'pendulum') {
       return (
-        <View>
+        <View style={styles.infoLayout}>
+          <Image
+            source={{uri: imageCropped as string}}
+            style={styles.imgCropped}
+          />
+          <HStack style={styles.inputs}>
+            <View style={styles.inputContainer}>
+              <Chip>Waktu</Chip>
+              <Text>{`${
+                Math.round(
+                  (durationTimeline.end - durationTimeline.start) * 100,
+                ) / 100
+              } s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Jenis Benda</Chip>
+              <Text>{`${pendulumForm.type}`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Massa</Chip>
+              <Text>{`${pendulumForm.mass} kg`}</Text>
+            </View>
+            {pendulumForm.type === 'bandul' ? (
+              <>
+                <View style={styles.inputContainer}>
+                  <Chip>Panjang Tali</Chip>
+                  <Text>{`${pendulumForm.lRope} m`}</Text>
+                </View>
+                <View style={styles.inputContainer}>
+                  <Chip>Sudut Fase</Chip>
+                  <Text>{`${pendulumForm.theta} deg`}</Text>
+                </View>
+              </>
+            ) : null}
+
+            {pendulumForm.type === 'pegas' ? (
+              <>
+                <View style={styles.inputContainer}>
+                  <Chip>Panjang Mula-mula</Chip>
+                  <Text>{`${pendulumForm.xInit} m`}</Text>
+                </View>
+                <View style={styles.inputContainer}>
+                  <Chip>Panjang Akhir</Chip>
+                  <Text>{`${pendulumForm.xLast} m`}</Text>
+                </View>
+              </>
+            ) : null}
+          </HStack>
+        </View>
+      );
+    }
+
+    if (lessonType === 'projectile-motion') {
+      return (
+        <View style={styles.infoLayout}>
+          <Image
+            source={{uri: imageCropped as string}}
+            style={styles.imgCropped}
+          />
+          <HStack style={styles.inputs}>
+            <View style={styles.inputContainer}>
+              <Chip>Waktu</Chip>
+              <Text>{`${
+                Math.round(
+                  (durationTimeline.end - durationTimeline.start) * 100,
+                ) / 100
+              } s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Jarak</Chip>
+              <Text>{`${projectileMotionForm.xVal} m`}</Text>
+            </View>
+          </HStack>
+        </View>
+      );
+    }
+  };
+
+  const Value = () => {
+    if (lessonType === 'viscosity') {
+      return (
+        <HStack style={styles.inputs}>
+          <View style={styles.inputContainer}>
+            <Chip>Viskositas</Chip>
+            <Text>{`${
+              Math.round(formulaResult.viscosity * 100) / 100
+            } N`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Koefisien Viskositas</Chip>
+            <Text>{`${
+              Math.round(formulaResult.coef * 100) / 100
+            } N.s/m^2`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Kecepatan</Chip>
+            <Text>{`${
+              Math.round(formulaResult.velocity * 100) / 100
+            } m/s`}</Text>
+          </View>
+        </HStack>
+      );
+    }
+
+    if (lessonType === 'pendulum') {
+      if (pendulumForm.type === 'bandul') {
+        return (
           <HStack style={styles.inputs}>
             <View style={styles.inputContainer}>
               <Chip>Simpangan</Chip>
-              <Text>{`${
-                Math.round(formulaResult.result * 100) / 100
-              } rad/s`}</Text>
+              <Text>{`${Math.round(formulaResult.y * 100) / 100} rad/s`}</Text>
             </View>
             <View style={styles.inputContainer}>
               <Chip>Amplitudo</Chip>
@@ -188,35 +197,108 @@ const Result = (props: Props) => {
               <Chip>Periode (T)</Chip>
               <Text>{`${Math.round(formulaResult.period * 100) / 100} s`}</Text>
             </View>
+            <View style={styles.inputContainer}>
+              <Chip>Frekuensi (f)</Chip>
+              <Text>{`${Math.round(formulaResult.freq * 100) / 100} Hz`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>ω</Chip>
+              <Text>{`${
+                Math.round(formulaResult.freq_deg * 100) / 100
+              } rad/s`}</Text>
+            </View>
           </HStack>
-        </View>
-      );
+        );
+      }
+
+      if (pendulumForm.type === 'pegas') {
+        return (
+          <HStack style={styles.inputs}>
+            <View style={styles.inputContainer}>
+              <Chip>Konstanta</Chip>
+              <Text>{`${
+                Math.round(formulaResult.constant * 100) / 100
+              } N/m`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>F</Chip>
+              <Text>{`${Math.round(formulaResult.F * 100) / 100} N`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Periode (T)</Chip>
+              <Text>{`${Math.round(formulaResult.period * 100) / 100} s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Frekuensi (f)</Chip>
+              <Text>{`${Math.round(formulaResult.freq * 100) / 100} Hz`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>ω</Chip>
+              <Text>{`${
+                Math.round(formulaResult.freq_deg * 100) / 100
+              } rad/s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Kecepatan (v)</Chip>
+              <Text>{`${Math.round(formulaResult.v * 100) / 100} m/s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Kecepatan max</Chip>
+              <Text>{`${
+                Math.round(formulaResult.v_max * 100) / 100
+              } m/s`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Energi Kinetik</Chip>
+              <Text>{`${Math.round(formulaResult.k_e * 100) / 100} J`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Energi Potensial</Chip>
+              <Text>{`${Math.round(formulaResult.p_e * 100) / 100} J`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <Chip>Energi Mekanik</Chip>
+              <Text>{`${Math.round(formulaResult.m_e * 100) / 100} J`}</Text>
+            </View>
+          </HStack>
+        );
+      }
     }
 
     if (lessonType === 'projectile-motion') {
       return (
-        <View>
-          <HStack style={styles.inputs}>
-            <View style={styles.inputContainer}>
-              <Chip>Vx</Chip>
-              <Text>{`${Math.round(formulaResult.vx * 100) / 100} m/s`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
-              <Chip>Vy</Chip>
-              <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
-              <Chip>V0</Chip>
-              <Text>{`${Math.round(formulaResult.v0 * 100) / 100} m/s`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
-              <Chip>Sudut Elevasi</Chip>
-              <Text>{`${
-                Math.round(formulaResult.elevation * 100) / 100
-              } deg`}</Text>
-            </View>
-          </HStack>
-        </View>
+        <HStack style={styles.inputs}>
+          <View style={styles.inputContainer}>
+            <Chip>Vx</Chip>
+            <Text>{`${Math.round(formulaResult.vx * 100) / 100} m/s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Vy</Chip>
+            <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>V0</Chip>
+            <Text>{`${Math.round(formulaResult.v0 * 100) / 100} m/s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Sudut Elevasi</Chip>
+            <Text>{`${
+              Math.round(formulaResult.elevation * 100) / 100
+            } deg`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>y</Chip>
+            <Text>{`${Math.round(formulaResult.y * 100) / 100} m`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Ketinggian maksimum</Chip>
+            <Text>{`${Math.round(formulaResult.hmax * 100) / 100} m`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>Waktu maksimum</Chip>
+            <Text>{`${Math.round(formulaResult.tT * 100) / 100} s`}</Text>
+          </View>
+        </HStack>
       );
     }
   };
@@ -259,27 +341,44 @@ const Result = (props: Props) => {
   // console.log('pro')
   return (
     <Container style={styles.container}>
-      <Text style={styles.title} variant="titleLarge">
-        Information
-      </Text>
+      <ScrollView>
+        <View style={styles.mainLayout}>
+          <Text style={styles.title} variant="titleLarge">
+            Information
+          </Text>
+          <Summary />
 
-      <View style={styles.mainLayout}>
-        <Summary />
-
-        <View style={styles.progressLayout}>
-          <Text style={{textAlign: 'center'}}>{progressTrack.status}</Text>
-          <ProgressBar progress={progressTrack.progress} />
-        </View>
-
-        {videoResult ? <VideoPlayer src={videoResult} controls={true} /> : null}
-
-        {formulaResult ? (
-          <View style={styles.layoutValue}>
-            <Text variant="titleMedium">Hasil</Text>
-            <Value />
+          <View style={styles.progressLayout}>
+            <Text style={{textAlign: 'center'}}>{progressTrack.status}</Text>
+            <ProgressBar progress={progressTrack.progress} />
           </View>
-        ) : null}
-      </View>
+
+          {videoResult ? (
+            <VideoPlayer src={videoResult} controls={true} />
+          ) : null}
+
+          {formulaResult ? (
+            <View style={styles.layoutValue}>
+              <Text variant="titleMedium">Hasil</Text>
+              <Value />
+
+              {formulaResult.graph ? (
+                <View style={{width: '100%'}}>
+                  <Image
+                    source={{
+                      uri: `data:image/png;base64,${formulaResult.graph}`,
+                    }}
+                    style={{
+                      width: 'auto',
+                      height: 350,
+                    }}
+                  />
+                </View>
+              ) : null}
+            </View>
+          ) : null}
+        </View>
+      </ScrollView>
 
       <Button
         mode="outlined"
@@ -336,10 +435,13 @@ const styles = StyleSheet.create({
     // gap: 24,
   },
   imgCropLayout: {
-    flex: 1,
+    // flex: 1,
+    width: 200,
   },
   inputLayout: {
-    flex: 3,
+    // flex: 3,
+    flexWrap: 'wrap',
+    paddingHorizontal: 8,
   },
   imgCropped: {
     height: 100,
@@ -347,10 +449,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   inputs: {
+    width: '100%',
     gap: 12,
     flexWrap: 'wrap',
-    // paddingHorizontal: 12,
-    paddingLeft: 12,
+    paddingHorizontal: 12,
+    // paddingLeft: 12,
     // justifyContent: 'space-between',
   },
   inputContainer: {

@@ -176,18 +176,6 @@ const DrawBbox = (props: Props) => {
                 ]}
               />
             )}
-            {/* {bboxDisplay && (
-              <Canvas style={{position: 'absolute', ...size}}>
-                <Rect
-                  x={bboxDisplay.x}
-                  y={bboxDisplay.y}
-                  width={bboxDisplay.width}
-                  height={bboxDisplay.height}
-                  color="blue"
-                  style="stroke"
-                />
-              </Canvas>
-            )} */}
           </>
         </GestureDetector>
       </ResumableZoom>
@@ -230,6 +218,7 @@ const DrawBbox = (props: Props) => {
           onPress={() => {
             setBboxDisplay(null);
             updateImageCropped(null);
+            startDraw.value = {x: 0, y: 0, width: 0, height: 0};
           }}
           disabled={!!bboxDisplay && !isDrawing}
           style={styles.drawBtn}>

@@ -62,12 +62,12 @@ const ProjectileMotion = () => {
             label="Jarak"
             right={<TextInput.Affix text="m" />}
           />
-          <HFNumberInput
+          {/* <HFNumberInput
             name="yVal"
             control={control}
             label="Tinggi"
             right={<TextInput.Affix text="m" />}
-          />
+          /> */}
         </VStack>
 
         <VStack style={styles.uploadLayout}>

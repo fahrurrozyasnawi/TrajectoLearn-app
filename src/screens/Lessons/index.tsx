@@ -3,7 +3,7 @@ import {LessonsContext} from '@context/Lessons';
 import {useNavigation} from '@react-navigation/native';
 import {RootNavigationProp} from '@routes/entity';
 import React, {useContext} from 'react';
-import {Dimensions, FlatList, StyleSheet} from 'react-native';
+import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import {Card} from 'react-native-paper';
 
 type ListLesson = {
@@ -18,32 +18,30 @@ const Lessons = () => {
   const navigation = useNavigation<RootNavigationProp>();
   const {updateLessonType} = useContext(LessonsContext);
 
-  const renderCarouselItem = ({item}: {item: ListLesson}) => {
-    return (
-      <Card
-        onPress={() => {
-          updateLessonType(item.name);
-          navigation.navigate(item.title as never);
-        }}
-        style={[styles.cardCarousel, {backgroundColor: item.color}]}>
-        <Card.Title
-          title={item.title}
-          titleVariant="titleLarge"
-          titleStyle={styles.title}
-        />
-        <Card.Cover source={item.img} />
-      </Card>
-    );
-  };
-
   return (
     <DoubleLayer>
-      <FlatList
-        data={listLesson}
-        renderItem={renderCarouselItem}
-        keyExtractor={item => item.title}
-        contentContainerStyle={styles.carouselContainer}
-      />
+      <ScrollView>
+        <View style={styles.container}>
+          {listLesson.map(item => {
+            return (
+              <Card
+                key={item.name}
+                onPress={() => {
+                  updateLessonType(item.name);
+                  navigation.navigate(item.title as never);
+                }}
+                style={[styles.cardCarousel, {backgroundColor: item.color}]}>
+                <Card.Title
+                  title={item.title}
+                  titleVariant="titleLarge"
+                  titleStyle={styles.title}
+                />
+                <Card.Cover source={item.img} />
+              </Card>
+            );
+          })}
+        </View>
+      </ScrollView>
     </DoubleLayer>
   );
 };
@@ -74,8 +72,10 @@ const listLesson: ListLesson[] = [
 
 const styles = StyleSheet.create({
   container: {
-    gap: 12,
+    gap: 18,
     alignItems: 'center',
+    paddingHorizontal: 20,
+    // flex: 1,
   },
   bgImg: {
     height: Dimensions.get('window').height / 6,
@@ -98,7 +98,10 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   cardCarousel: {
-    width: Dimensions.get('window').width - 50,
+    // width: Dimensions.get('window').width,
+    // height: 300,
+    // paddingHorizontal: 12,
+    width: '100%',
   },
 });
 

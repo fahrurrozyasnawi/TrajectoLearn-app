@@ -17,7 +17,7 @@ export type ProjectileMotionFormValues = z.infer<typeof projectileMotionSchema>;
 
 export const pendulumSchema = z
   .object({
-    type: z.union([z.literal('bandul'), z.literal('pegas')]),
+    type: z.union([z.literal('bandul'), z.literal('pegas')]).nullable(),
     time: z.number().optional(),
     lRope: z.number().optional(),
     theta: z.number().optional(),

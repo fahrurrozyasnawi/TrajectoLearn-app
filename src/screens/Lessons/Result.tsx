@@ -1,4 +1,5 @@
 import Container from '@components/layout/container';
+import DynamicSizeImage from '@components/media/DynamicSizeImage';
 import VideoPlayer from '@components/media/VideoPlayer';
 import HStack from '@components/stack view/HStack';
 import StaticVar from '@config/StaticVar';
@@ -191,7 +192,7 @@ const Result = (props: Props) => {
               <Chip>Amplitudo</Chip>
               <Text>{`${
                 Math.round(formulaResult.amplitude * 100) / 100
-              } m`}</Text>
+              } px`}</Text>
             </View>
             <View style={styles.inputContainer}>
               <Chip>Periode (T)</Chip>
@@ -364,13 +365,9 @@ const Result = (props: Props) => {
 
               {formulaResult.graph ? (
                 <View style={{width: '100%'}}>
-                  <Image
+                  <DynamicSizeImage
                     source={{
                       uri: `data:image/png;base64,${formulaResult.graph}`,
-                    }}
-                    style={{
-                      width: 'auto',
-                      height: 350,
                     }}
                   />
                 </View>
@@ -412,7 +409,7 @@ const styles = StyleSheet.create({
   layoutValue: {
     marginTop: 18,
     gap: 8,
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
   },
   titleValue: {
     fontWeight: '900',

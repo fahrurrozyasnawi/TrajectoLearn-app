@@ -34,13 +34,13 @@ export const LessonsContext = createContext<ContextValues>({
   videoResult: null,
   projectileMotionForm: {yVal: 0, xVal: 0},
   pendulumForm: {
-    type: null,
-    time: 0,
-    mass: 0,
-    lRope: 0,
-    theta: 0,
-    xInit: 0,
-    xLast: 0,
+    type: 'bandul',
+    time: undefined,
+    mass: undefined,
+    lRope: undefined,
+    theta: undefined,
+    xInit: undefined,
+    xLast: undefined,
   },
   viscosityForm: {
     radius: 0,
@@ -68,13 +68,13 @@ export default function LessonsProvider({children}: Props) {
       xVal: 0,
     });
   const [pendulumForm, setPendulumForm] = useState<PendulumFormValues>({
-    type: null,
-    time: 0,
-    mass: 0,
-    lRope: 0,
-    theta: 0,
-    xInit: 0,
-    xLast: 0,
+    type: 'bandul',
+    time: undefined,
+    mass: undefined,
+    lRope: undefined,
+    theta: undefined,
+    xInit: undefined,
+    xLast: undefined,
   });
   const [viscosityForm, setViscosityForm] = useState<ViscosityFormValues>({
     radius: 0,
@@ -110,13 +110,13 @@ export default function LessonsProvider({children}: Props) {
     setViscosityForm(prev => ({...prev, radius: 0, densityT: 0, densityF: 0}));
     setPendulumForm(prev => ({
       ...prev,
-      type: null,
-      time: 0,
-      mass: 0,
-      lRope: 0,
-      theta: 0,
-      xInit: 0,
-      xLast: 0,
+      type: 'bandul',
+      time: undefined,
+      mass: undefined,
+      lRope: undefined,
+      theta: undefined,
+      xInit: undefined,
+      xLast: undefined,
     }));
     setProjectileMotionForm(prev => ({...prev, yVal: 0, xVal: 0}));
 

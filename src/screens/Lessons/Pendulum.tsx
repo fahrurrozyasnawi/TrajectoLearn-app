@@ -13,6 +13,7 @@ import {Button, Text, TextInput} from 'react-native-paper';
 import useImportVideo from 'src/hooks/useImportVideo';
 import {PendulumFormValues, pendulumSchema} from './entity';
 import HFSelect from '@components/input/HFSelect';
+import HFRadioButton from '@components/input/HFRadioButton';
 
 const Pendulum = () => {
   const navigation = useNavigation<RootNavigationProp>();
@@ -21,7 +22,7 @@ const Pendulum = () => {
     useContext(LessonsContext);
 
   const {videoUri, browseVideo, resetState} = useImportVideo();
-  const {control, handleSubmit, watch} = useForm<PendulumFormValues>({
+  const {control, handleSubmit, watch, reset} = useForm<PendulumFormValues>({
     resolver: zodResolver(pendulumSchema),
     defaultValues: pendulumForm,
   });
@@ -55,18 +56,22 @@ const Pendulum = () => {
     return () => backHandler.remove();
   }, [navigation]);
 
+  useEffect(() => {
+    reset(() => ({mass: 0, type: watch().type}));
+  }, [watch().type]);
+
+  console.log('form', watch());
   return (
     <DoubleLayer bgImg={lessonType} imageStyle={styles.imgCover}>
       <ScrollView>
         <View style={styles.container}>
           <Text variant="titleMedium">Masukkan Nilai</Text>
           <VStack style={styles.inputLayout}>
-            <HFSelect
+            <HFRadioButton
               control={control}
               name="type"
               options={options}
-              hideMenuHeader={true}
-              placeholder="Pilih benda"
+              label="Pilih benda"
             />
             {watch().type === 'pegas' ? (
               <>

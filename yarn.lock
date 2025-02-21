@@ -3557,7 +3557,6 @@ __metadata:
     react-native-gesture-handler: ^2.22.0
     react-native-image-picker: ^7.2.3
     react-native-paper: ^5.13.1
-    react-native-paper-dropdown: ^2.3.1
     react-native-reanimated: ^3.16.6
     react-native-safe-area-context: ^5.1.0
     react-native-screens: ^4.5.0
@@ -9989,20 +9988,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-paper-dropdown@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "react-native-paper-dropdown@npm:2.3.1"
-  dependencies:
-    react-native-paper: ^5.12.3
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-    react-native-paper: "*"
-  checksum: ee8a25d3ea240f44b5172b8dd75333bcea1feb438326bd9f4d148bd01259059f822c4cba89692f9e5583aee9ff8ce64de68b37a3b5d6370b739651947a3eccc4
-  languageName: node
-  linkType: hard
-
-"react-native-paper@npm:^5.12.3, react-native-paper@npm:^5.13.1":
+"react-native-paper@npm:^5.13.1":
   version: 5.13.1
   resolution: "react-native-paper@npm:5.13.1"
   dependencies:

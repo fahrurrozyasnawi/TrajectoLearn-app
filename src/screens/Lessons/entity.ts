@@ -17,7 +17,7 @@ export type ProjectileMotionFormValues = z.infer<typeof projectileMotionSchema>;
 
 export const pendulumSchema = z
   .object({
-    type: z.union([z.literal('bandul'), z.literal('pegas')]).nullable(),
+    type: z.union([z.literal('bandul'), z.literal('pegas')]),
     time: z.number().optional(),
     lRope: z.number().optional(),
     theta: z.number().optional(),
@@ -26,6 +26,14 @@ export const pendulumSchema = z
     mass: z.number().optional(),
   })
   .superRefine((val, ctx) => {
+    if (!val.type) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Jenis benda tidak boleh kosong',
+        path: ['type'],
+      });
+    }
+
     if (val.type === 'bandul') {
       if (!val.mass) {
         ctx.addIssue({

@@ -57,10 +57,9 @@ const Pendulum = () => {
   }, [navigation]);
 
   useEffect(() => {
-    reset(() => ({mass: 0, type: watch().type}));
+    reset(() => ({...pendulumForm, mass: 0, type: watch().type}));
   }, [watch().type]);
 
-  console.log('form', watch());
   return (
     <DoubleLayer bgImg={lessonType} imageStyle={styles.imgCover}>
       <ScrollView>

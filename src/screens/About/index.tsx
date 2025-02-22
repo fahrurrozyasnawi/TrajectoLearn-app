@@ -1,6 +1,6 @@
 import DoubleLayer from '@components/layout/double-layer';
 import React from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Text} from 'react-native-paper';
 
 type Props = {};
@@ -8,61 +8,68 @@ type Props = {};
 const About = (props: Props) => {
   return (
     <DoubleLayer bgImg="home">
-      <Text style={styles.title} variant="displaySmall">
-        About Us
-      </Text>
+      <View>
+        <ScrollView>
+          <Text style={styles.title} variant="displaySmall">
+            About Us
+          </Text>
 
-      <Card style={styles.aboutCard}>
-        <View style={styles.mainText}>
-          <Text variant="bodyLarge">
-            Selamat datang di TrajectoLearn, aplikasi edukasi berbasis
-            kecerdasan buatan yang memudahkan siswa memahami fisika secara
-            interaktif dan menyenangkan.
-          </Text>
-          <Text variant="bodyLarge">
-            Dikembangkan oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan
-            Yurmi Rengke, TrajectoLearn menyederhanakan konsep-konsep fisika
-            seperti:
-          </Text>
-          <View style={styles.list}>
-            <Text>
-              <Text style={styles.titleList} variant="titleMedium">
-                Gerak Parabola
+          <Card style={styles.aboutCard}>
+            <View style={styles.mainText}>
+              <Text variant="bodyLarge">
+                Selamat datang di TrajectoLearn, aplikasi edukasi berbasis
+                kecerdasan buatan yang memudahkan siswa memahami fisika secara
+                interaktif dan menyenangkan.
               </Text>
               <Text variant="bodyLarge">
-                : Mengukur lintasan, kecepatan, dan ketinggian.
+                Dikembangkan oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan
+                Yurmi Rengke, TrajectoLearn menyederhanakan konsep-konsep fisika
+                seperti:
               </Text>
-            </Text>
-          </View>
-          <View style={styles.list}>
-            <Text>
-              <Text style={styles.titleList} variant="titleMedium">
-                Gerak Harmonik Sederhana
-              </Text>
+              <View style={styles.list}>
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    Gerak Parabola
+                  </Text>
+                  <Text variant="bodyLarge">
+                    : Mengukur lintasan, kecepatan, dan ketinggian.
+                  </Text>
+                </Text>
+              </View>
+              <View style={styles.list}>
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    Gerak Harmonik Sederhana
+                  </Text>
+                  <Text variant="bodyLarge">
+                    : Menganalisis osilasi dan periode.
+                  </Text>
+                </Text>
+              </View>
+              <View style={styles.list}>
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    Viskositas
+                  </Text>
+                  <Text variant="bodyLarge">
+                    : Menghitung nilai viskositas.
+                  </Text>
+                </Text>
+              </View>
+
               <Text variant="bodyLarge">
-                : Menganalisis osilasi dan periode.
+                Dengan antarmuka yang user-friendly dan teknologi AI,
+                TrajectoLearn membuat belajar fisika lebih mudah dipahami dan
+                menyenangkan.
               </Text>
-            </Text>
-          </View>
-          <View style={styles.list}>
-            <Text>
-              <Text style={styles.titleList} variant="titleMedium">
-                Viskositas
+
+              <Text style={styles.slogan} variant="titleLarge">
+                TrajectoLearn - Solusi Cerdas untuk Belajar Fisika!
               </Text>
-              <Text variant="bodyLarge">: Menghitung nilai viskositas.</Text>
-            </Text>
-          </View>
-
-          <Text variant="bodyLarge">
-            Dengan antarmuka yang user-friendly dan teknologi AI, TrajectoLearn
-            membuat belajar fisika lebih mudah dipahami dan menyenangkan.
-          </Text>
-
-          <Text style={styles.slogan} variant="titleLarge">
-            TrajectoLearn - Solusi Cerdas untuk Belajar Fisika!
-          </Text>
-        </View>
-      </Card>
+            </View>
+          </Card>
+        </ScrollView>
+      </View>
     </DoubleLayer>
   );
 };

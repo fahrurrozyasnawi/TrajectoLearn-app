@@ -78,7 +78,7 @@ const Pendulum = () => {
                   name="mass"
                   control={control}
                   label="Massa benda"
-                  right={<TextInput.Affix text="g" />}
+                  right={<TextInput.Affix text="kg" />}
                 />
 
                 <HFNumberInput
@@ -103,7 +103,7 @@ const Pendulum = () => {
                   name="mass"
                   control={control}
                   label="Massa benda"
-                  right={<TextInput.Affix text="g" />}
+                  right={<TextInput.Affix text="kg" />}
                 />
 
                 <HFNumberInput

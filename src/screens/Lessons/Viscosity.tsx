@@ -74,6 +74,12 @@ const Viscosity = () => {
                 right={<TextInput.Affix text="m" />}
               />
               <HFNumberInput
+                name="distance"
+                control={control}
+                label="Tinggi fluida di dalam tabung"
+                right={<TextInput.Affix text="m" />}
+              />
+              <HFNumberInput
                 name="densityT"
                 control={control}
                 label="Massa Jenis Benda"
@@ -91,7 +97,7 @@ const Viscosity = () => {
               {videoUri && (
                 <VideoPlayer
                   src={videoUri}
-                  onError={onError}
+                  // onError={onError}
                   paused={true}
                   controls={true}
                 />

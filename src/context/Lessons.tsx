@@ -43,6 +43,7 @@ export const LessonsContext = createContext<ContextValues>({
     xLast: 0,
   },
   viscosityForm: {
+    distance: 0,
     radius: 0,
     densityF: 0,
     densityT: 0,
@@ -77,6 +78,7 @@ export default function LessonsProvider({children}: Props) {
     xLast: 0,
   });
   const [viscosityForm, setViscosityForm] = useState<ViscosityFormValues>({
+    distance: 0,
     radius: 0,
     densityT: 0,
     densityF: 0,

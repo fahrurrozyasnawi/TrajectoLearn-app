@@ -2,6 +2,7 @@ import {z} from 'zod';
 
 export const viscositySchema = z.object({
   radius: z.number(),
+  distance: z.number(),
   densityT: z.number(),
   densityF: z.number(),
 });

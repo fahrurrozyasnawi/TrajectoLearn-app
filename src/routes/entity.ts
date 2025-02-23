@@ -5,6 +5,7 @@ type RootStackParamList = {
   About: undefined;
   Result: undefined;
   Lessons: undefined;
+  Tutorial: undefined;
   'Gerak Parabola': undefined;
   'Gerak Harmonik': undefined;
   Viskositas: undefined;

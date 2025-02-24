@@ -270,15 +270,23 @@ const Result = (props: Props) => {
       return (
         <HStack style={styles.inputs}>
           <View style={styles.inputContainer}>
-            <Chip>Vx</Chip>
+            <Chip>v0x</Chip>
+            <Text>{`${Math.round(formulaResult.v0_x * 100) / 100} m/s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>v0y</Chip>
+            <Text>{`${Math.round(formulaResult.v0_y * 100) / 100} m/s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>vx</Chip>
             <Text>{`${Math.round(formulaResult.vx * 100) / 100} m/s`}</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Chip>Vy</Chip>
+            <Chip>vy</Chip>
             <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Chip>V0</Chip>
+            <Chip>v0</Chip>
             <Text>{`${Math.round(formulaResult.v0 * 100) / 100} m/s`}</Text>
           </View>
           <View style={styles.inputContainer}>
@@ -287,17 +295,21 @@ const Result = (props: Props) => {
               Math.round(formulaResult.elevation * 100) / 100
             } deg`}</Text>
           </View>
-          <View style={styles.inputContainer}>
+          {/* <View style={styles.inputContainer}>
             <Chip>y</Chip>
             <Text>{`${Math.round(formulaResult.y * 100) / 100} m`}</Text>
-          </View>
+          </View> */}
           <View style={styles.inputContainer}>
             <Chip>Ketinggian maksimum</Chip>
             <Text>{`${Math.round(formulaResult.hmax * 100) / 100} m`}</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Chip>Waktu maksimum</Chip>
+            <Chip>tT</Chip>
             <Text>{`${Math.round(formulaResult.tT * 100) / 100} s`}</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Chip>ty_max</Chip>
+            <Text>{`${Math.round(formulaResult.ty_max * 100) / 100} s`}</Text>
           </View>
         </HStack>
       );

@@ -189,6 +189,10 @@ const Result = (props: Props) => {
               <Text>{`${Math.round(formulaResult.y * 100) / 100} rad/s`}</Text>
             </View>
             <View style={styles.inputContainer}>
+              <Chip>Gaya Pemulih (F)</Chip>
+              <Text>{`${Math.round(formulaResult.F * 100) / 100} N`}</Text>
+            </View>
+            <View style={styles.inputContainer}>
               <Chip>Amplitudo</Chip>
               <Text>{`${
                 Math.round(formulaResult.amplitude * 100) / 100

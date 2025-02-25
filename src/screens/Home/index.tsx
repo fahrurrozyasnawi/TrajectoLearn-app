@@ -14,13 +14,18 @@ const Home = () => {
         <Button onPress={() => navigation.navigate('Lessons')} mode="contained">
           Menu
         </Button>
-        <Button onPress={() => navigation.navigate('About')} mode="contained">
-          About Us
-        </Button>
         <Button
           onPress={() => navigation.navigate('Tutorial')}
           mode="contained">
           Guide
+        </Button>
+        <Button
+          onPress={() => navigation.navigate('Material')}
+          mode="contained">
+          Material
+        </Button>
+        <Button onPress={() => navigation.navigate('About')} mode="contained">
+          About Us
         </Button>
       </View>
     </HomeLayout>

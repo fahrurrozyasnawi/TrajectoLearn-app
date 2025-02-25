@@ -49,12 +49,13 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontWeight: '800',
+    textAlign: 'center',
   },
   cardLayout: {
     marginTop: 20,
     justifyContent: 'center',
     padding: 24,
-    height: 200,
+    height: 250,
     borderRadius: 32,
   },
   logoLayout: {

@@ -137,7 +137,7 @@ const Result = (props: Props) => {
           />
           <HStack style={styles.inputs}>
             <View style={styles.inputContainer}>
-              <Chip>Waktu</Chip>
+              <Chip>Durasi</Chip>
               <Text>{`${
                 Math.round(
                   (durationTimeline.end - durationTimeline.start) * 100,
@@ -159,7 +159,7 @@ const Result = (props: Props) => {
       return (
         <HStack style={styles.inputs}>
           <View style={styles.inputContainer}>
-            <Chip>Viskositas</Chip>
+            <Chip>Gaya Stokes</Chip>
             <Text>{`${
               Math.round(formulaResult.viscosity * 100) / 100
             } N`}</Text>
@@ -171,7 +171,7 @@ const Result = (props: Props) => {
             } N.s/m^2`}</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Chip>Kecepatan</Chip>
+            <Chip>Kecepatan Terminal</Chip>
             <Text>{`${
               Math.round(formulaResult.velocity * 100) / 100
             } m/s`}</Text>
@@ -222,7 +222,7 @@ const Result = (props: Props) => {
               } N/m`}</Text>
             </View>
             <View style={styles.inputContainer}>
-              <Chip>F</Chip>
+              <Chip>Gaya Pemulih (F)</Chip>
               <Text>{`${Math.round(formulaResult.F * 100) / 100} N`}</Text>
             </View>
             <View style={styles.inputContainer}>
@@ -239,7 +239,7 @@ const Result = (props: Props) => {
                 Math.round(formulaResult.freq_deg * 100) / 100
               } rad/s`}</Text>
             </View>
-            <View style={styles.inputContainer}>
+            {/* <View style={styles.inputContainer}>
               <Chip>Kecepatan (v)</Chip>
               <Text>{`${Math.round(formulaResult.v * 100) / 100} m/s`}</Text>
             </View>
@@ -248,8 +248,8 @@ const Result = (props: Props) => {
               <Text>{`${
                 Math.round(formulaResult.v_max * 100) / 100
               } m/s`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
+            </View> */}
+            {/* <View style={styles.inputContainer}>
               <Chip>Energi Kinetik</Chip>
               <Text>{`${Math.round(formulaResult.k_e * 100) / 100} J`}</Text>
             </View>
@@ -260,7 +260,7 @@ const Result = (props: Props) => {
             <View style={styles.inputContainer}>
               <Chip>Energi Mekanik</Chip>
               <Text>{`${Math.round(formulaResult.m_e * 100) / 100} J`}</Text>
-            </View>
+            </View> */}
           </HStack>
         );
       }
@@ -283,8 +283,12 @@ const Result = (props: Props) => {
           </View>
           <View style={styles.inputContainer}>
             <Chip>vy</Chip>
-            <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>
+            <Text>{`Vy(t)=${formulaResult.vy}`}</Text>
           </View>
+          {/* <View style={styles.inputContainer}>
+            <Chip>vy</Chip>
+            <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>
+          </View> */}
           <View style={styles.inputContainer}>
             <Chip>v0</Chip>
             <Text>{`${Math.round(formulaResult.v0 * 100) / 100} m/s`}</Text>
@@ -304,7 +308,7 @@ const Result = (props: Props) => {
             <Text>{`${Math.round(formulaResult.hmax * 100) / 100} m`}</Text>
           </View>
           <View style={styles.inputContainer}>
-            <Chip>tT</Chip>
+            <Chip>tx_max</Chip>
             <Text>{`${Math.round(formulaResult.tT * 100) / 100} s`}</Text>
           </View>
           <View style={styles.inputContainer}>

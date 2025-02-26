@@ -291,6 +291,10 @@ const Result = (props: Props) => {
             <Chip>vy</Chip>
             <Text>{`Vy(t)=${formulaResult.vy}`}</Text>
           </View>
+          <View style={styles.inputContainer}>
+            <Chip>1s(video)</Chip>
+            <Text>{`1s(video)=${formulaResult.real_duration} s (sebenarnya)`}</Text>
+          </View>
           {/* <View style={styles.inputContainer}>
             <Chip>vy</Chip>
             <Text>{`${Math.round(formulaResult.vy * 100) / 100} m/s`}</Text>

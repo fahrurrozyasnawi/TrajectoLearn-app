@@ -82,47 +82,49 @@ const Result = (props: Props) => {
             style={styles.imgCropped}
           />
           <HStack style={styles.inputs}>
-            <View style={styles.inputContainer}>
-              <Chip>Waktu</Chip>
-              <Text>{`${
-                Math.round(
-                  (durationTimeline.end - durationTimeline.start) * 100,
-                ) / 100
-              } s`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
-              <Chip>Jenis Benda</Chip>
-              <Text>{`${pendulumForm.type}`}</Text>
-            </View>
-            <View style={styles.inputContainer}>
-              <Chip>Massa</Chip>
-              <Text>{`${pendulumForm.mass} kg`}</Text>
-            </View>
-            {pendulumForm.type === 'bandul' ? (
-              <>
-                <View style={styles.inputContainer}>
-                  <Chip>Panjang Tali</Chip>
-                  <Text>{`${pendulumForm.lRope} m`}</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                  <Chip>Sudut Fase</Chip>
-                  <Text>{`${pendulumForm.theta} deg`}</Text>
-                </View>
-              </>
-            ) : null}
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={styles.inputContainer}>
+                <Chip>Waktu</Chip>
+                <Text>{`${
+                  Math.round(
+                    (durationTimeline.end - durationTimeline.start) * 100,
+                  ) / 100
+                } s`}</Text>
+              </View>
+              <View style={styles.inputContainer}>
+                <Chip>Jenis Benda</Chip>
+                <Text>{`${pendulumForm.type}`}</Text>
+              </View>
+              <View style={styles.inputContainer}>
+                <Chip>Massa</Chip>
+                <Text>{`${pendulumForm.mass} kg`}</Text>
+              </View>
+              {pendulumForm.type === 'bandul' ? (
+                <>
+                  <View style={styles.inputContainer}>
+                    <Chip>Panjang Tali</Chip>
+                    <Text>{`${pendulumForm.lRope} m`}</Text>
+                  </View>
+                  <View style={styles.inputContainer}>
+                    <Chip>Sudut Fase</Chip>
+                    <Text>{`${pendulumForm.theta} deg`}</Text>
+                  </View>
+                </>
+              ) : null}
 
-            {pendulumForm.type === 'pegas' ? (
-              <>
-                <View style={styles.inputContainer}>
-                  <Chip>Panjang Mula-mula</Chip>
-                  <Text>{`${pendulumForm.xInit} m`}</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                  <Chip>Panjang Akhir</Chip>
-                  <Text>{`${pendulumForm.xLast} m`}</Text>
-                </View>
-              </>
-            ) : null}
+              {pendulumForm.type === 'pegas' ? (
+                <>
+                  <View style={styles.inputContainer}>
+                    <Chip>Panjang Mula-mula</Chip>
+                    <Text>{`${pendulumForm.xInit} m`}</Text>
+                  </View>
+                  <View style={styles.inputContainer}>
+                    <Chip>Panjang Akhir</Chip>
+                    <Text>{`${pendulumForm.xLast} m`}</Text>
+                  </View>
+                </>
+              ) : null}
+            </ScrollView>
           </HStack>
         </View>
       );

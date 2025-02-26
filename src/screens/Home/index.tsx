@@ -12,7 +12,7 @@ const Home = () => {
     <HomeLayout bgImg={require('../../assets/bg.jpg')}>
       <View style={styles.container}>
         <Button onPress={() => navigation.navigate('Lessons')} mode="contained">
-          Menu
+          Track
         </Button>
         <Button
           onPress={() => navigation.navigate('Tutorial')}

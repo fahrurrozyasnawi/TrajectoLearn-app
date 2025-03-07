@@ -7,6 +7,9 @@ type RootStackParamList = {
   Lessons: undefined;
   Tutorial: undefined;
   Material: undefined;
+  ViscoMaterial: undefined;
+  ProjectileMaterial: undefined;
+  HarmonicMaterial: undefined;
   'Gerak Parabola': undefined;
   'Gerak Harmonik': undefined;
   Viskositas: undefined;

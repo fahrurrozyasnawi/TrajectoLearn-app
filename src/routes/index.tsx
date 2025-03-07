@@ -13,6 +13,9 @@ import React from 'react';
 import Home from '../screens/Home';
 import Tutorial from '@screens/Tutorial';
 import Material from '@screens/Material';
+import ViscosityMaterial from '@screens/Material/Viscosity';
+import ProjectileMotionMaterial from '@screens/Material/ProjectileMotion';
+import HarmonicMaterial from '@screens/Material/HarmonicMove';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +33,12 @@ export default function RootStack() {
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Tutorial" component={Tutorial} />
       <Stack.Screen name="Material" component={Material} />
+      <Stack.Screen name="ViscoMaterial" component={ViscosityMaterial} />
+      <Stack.Screen
+        name="ProjectileMaterial"
+        component={ProjectileMotionMaterial}
+      />
+      <Stack.Screen name="HarmonicMaterial" component={HarmonicMaterial} />
       <Stack.Screen name="Result" component={Result} />
       <Stack.Screen name="Lessons" component={Lessons} />
       <Stack.Screen name="Viskositas" component={Viscosity} />

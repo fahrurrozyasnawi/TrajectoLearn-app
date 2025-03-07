@@ -11,21 +11,21 @@ const Home = () => {
   return (
     <HomeLayout bgImg={require('../../assets/bg.jpg')}>
       <View style={styles.container}>
+        <Button onPress={() => navigation.navigate('About')} mode="contained">
+          Tim Pengembang
+        </Button>
         <Button onPress={() => navigation.navigate('Lessons')} mode="contained">
-          Track
+          Mulai
         </Button>
         <Button
           onPress={() => navigation.navigate('Tutorial')}
           mode="contained">
-          Guide
+          Panduan
         </Button>
         <Button
           onPress={() => navigation.navigate('Material')}
           mode="contained">
-          Material
-        </Button>
-        <Button onPress={() => navigation.navigate('About')} mode="contained">
-          About Us
+          Bahan Ajar
         </Button>
       </View>
     </HomeLayout>

@@ -1,7 +1,7 @@
 import DoubleLayer from '@components/layout/double-layer';
 import React from 'react';
-import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
-import {Card, Text} from 'react-native-paper';
+import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
+import {Card, Divider, Text} from 'react-native-paper';
 
 type Props = {};
 
@@ -11,56 +11,112 @@ const About = (props: Props) => {
       <View>
         <ScrollView>
           <Text style={styles.title} variant="displaySmall">
-            About Us
+            Tentang Kami
           </Text>
 
           <Card style={styles.aboutCard}>
             <View style={styles.mainText}>
               <Text variant="bodyLarge">
-                Selamat datang di TrajectoLearn, aplikasi edukasi berbasis
-                kecerdasan buatan yang memudahkan siswa memahami fisika secara
-                interaktif dan menyenangkan.
+                TrajectoLearn adalah aplikasi edukasi berbasis AI yang membantu
+                siswa memahami konsep fisika secara interaktif. Dikembangkan
+                oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan Yurmi
+                Rengke, mahasiswa Pendidikan Fisika Universitas Negeri Makassar,
+                di bawah bimbingan Prof. Drs. Subaer, M.Phil., Ph.D.
               </Text>
               <Text variant="bodyLarge">
-                Dikembangkan oleh Muhammad Khalil Sukur, Fatin Atikah Jafar, dan
-                Yurmi Rengke, TrajectoLearn menyederhanakan konsep-konsep fisika
-                seperti:
+                Aplikasi ini menggunakan AI dan video tracking untuk
+                menganalisis gerak parabola, gerak harmonik sederhana, dan
+                viskositas secara real-time. Teknologi yang digunakan meliputi:
               </Text>
               <View style={styles.list}>
+                <Image
+                  source={require('../../assets/react-icon.png')}
+                  style={{
+                    width: 56,
+                    height: 50,
+                  }}
+                />
                 <Text>
                   <Text style={styles.titleList} variant="titleMedium">
-                    Gerak Parabola
+                    Ract Native{' '}
                   </Text>
                   <Text variant="bodyLarge">
-                    : Mengukur lintasan, kecepatan, dan ketinggian.
-                  </Text>
-                </Text>
-              </View>
-              <View style={styles.list}>
-                <Text>
-                  <Text style={styles.titleList} variant="titleMedium">
-                    Gerak Harmonik Sederhana
-                  </Text>
-                  <Text variant="bodyLarge">
-                    : Menganalisis osilasi dan periode.
-                  </Text>
-                </Text>
-              </View>
-              <View style={styles.list}>
-                <Text>
-                  <Text style={styles.titleList} variant="titleMedium">
-                    Viskositas
-                  </Text>
-                  <Text variant="bodyLarge">
-                    : Menghitung nilai viskositas.
+                    dengan TypeScript untuk UI yang responsif.
                   </Text>
                 </Text>
               </View>
 
-              <Text variant="bodyLarge">
-                Dengan antarmuka yang user-friendly dan teknologi AI,
-                TrajectoLearn membuat belajar fisika lebih mudah dipahami dan
-                menyenangkan.
+              <Divider style={styles.divider} />
+
+              <View style={styles.list}>
+                <Image
+                  source={require('../../assets/fast-api.png')}
+                  style={{
+                    width: 120,
+                    height: 50,
+                  }}
+                />
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    FastAPI{' '}
+                  </Text>
+                  <Text variant="bodyLarge">
+                    dengan Python sebagai backend berbasis REST API.
+                  </Text>
+                </Text>
+              </View>
+
+              <Divider style={styles.divider} />
+
+              <View style={styles.list}>
+                <Image
+                  source={require('../../assets/sam2.png')}
+                  style={{
+                    width: 120,
+                    height: 50,
+                  }}
+                />
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    SAM2{' '}
+                  </Text>
+                  <Text variant="bodyLarge">
+                    untuk tracking objek dalam video.
+                  </Text>
+                </Text>
+              </View>
+
+              <Divider style={styles.divider} />
+
+              <View style={styles.list}>
+                <Image
+                  source={require('../../assets/gcp.png')}
+                  style={{
+                    width: 110,
+                    height: 50,
+                  }}
+                />
+                <Text>
+                  <Text style={styles.titleList} variant="titleMedium">
+                    Google Cloud Computing{' '}
+                  </Text>
+                  <Text variant="bodyLarge">
+                    untuk akses backend yang cepat dan aman.
+                  </Text>
+                </Text>
+              </View>
+
+              <Divider style={styles.divider} />
+
+              <Text
+                style={[styles.titleList, {textAlign: 'center'}]}
+                variant="titleMedium">
+                Visi dan Misi
+              </Text>
+
+              <Text style={{textAlign: 'center'}} variant="bodyLarge">
+                Kami berkomitmen menghadirkan pembelajaran fisika yang lebih
+                inovatif, praktis, dan menarik dengan teknologi AI.
               </Text>
 
               <Text style={styles.slogan} variant="titleLarge">
@@ -81,6 +137,9 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     paddingHorizontal: 32,
+  },
+  divider: {
+    marginVertical: 12,
   },
   cardLayout: {
     marginTop: -24,
@@ -103,6 +162,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginHorizontal: 32,
     padding: 12,
+    marginBottom: 12,
   },
   mainText: {
     // paddingHorizontal: 12,
@@ -112,7 +172,7 @@ const styles = StyleSheet.create({
   },
   list: {
     // flexDirection: 'row',
-    // alignItems: 'center',
+    alignItems: 'center',
     gap: 1,
     marginLeft: 8,
   },
@@ -120,6 +180,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   slogan: {
+    marginTop: 24,
     fontWeight: 'bold',
     textAlign: 'center',
   },

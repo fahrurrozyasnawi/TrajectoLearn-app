@@ -1,4 +1,5 @@
 import DoubleLayer from '@components/layout/double-layer';
+import DynamicSizeImage from '@components/media/DynamicSizeImage';
 import React from 'react';
 import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
 import {Card, Divider, Text} from 'react-native-paper';
@@ -23,6 +24,7 @@ const About = (props: Props) => {
                 Rengke, mahasiswa Pendidikan Fisika Universitas Negeri Makassar,
                 di bawah bimbingan Prof. Drs. Subaer, M.Phil., Ph.D.
               </Text>
+
               <Text variant="bodyLarge">
                 Aplikasi ini menggunakan AI dan video tracking untuk
                 menganalisis gerak parabola, gerak harmonik sederhana, dan
@@ -118,6 +120,23 @@ const About = (props: Props) => {
                 Kami berkomitmen menghadirkan pembelajaran fisika yang lebih
                 inovatif, praktis, dan menarik dengan teknologi AI.
               </Text>
+
+              <Divider style={styles.divider} />
+
+              <DynamicSizeImage
+                source={require('../../assets/about us/1.jpg')}
+                style={{
+                  borderRadius: 12,
+                }}
+              />
+              <DynamicSizeImage
+                source={require('../../assets/about us/2.jpg')}
+                style={{
+                  borderRadius: 12,
+                }}
+              />
+
+              <Divider style={styles.divider} />
 
               <Text style={styles.slogan} variant="titleLarge">
                 TrajectoLearn - Solusi Cerdas untuk Belajar Fisika!
